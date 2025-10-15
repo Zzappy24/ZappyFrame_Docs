@@ -98,11 +98,11 @@ ZappyFrame delivers exceptional performance for large-scale data operations thro
 
 ```scala
 // Load JSON data
-val df = ArrowDataFrame.read.json("data.json")
+val df = ArrowDataFrame.scanJson("data.json")
 
 // Perform operations
 val filtered = df.filter($"age" > 25)
-val joined = df.join(otherDF, "customer_id")
+val joined = df.join(otherDF, "customer_id", "left")
 
 // Export results
 df.write.arrow("output.arrow")
@@ -115,7 +115,7 @@ df.write.arrow("output.arrow")
 val df = ArrowDataFrame.scanJson("./data.json")
 
 // High-performance joins
-val result = df.leftJoin(otherDF, "id")
+val result = df.Join(otherDF, "id", "inner")
 ```
 
 ## Why ZappyFrame?
