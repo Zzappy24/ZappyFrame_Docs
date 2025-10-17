@@ -44,7 +44,7 @@ ZappyFrame delivers exceptional performance for large-scale data operations thro
 ### Enterprise Architecture
 - **Apache Arrow integration**: Native columnar processing
 - **Memory management**: Reference counting and automatic cleanup
-- **Multi-format support**: JSON, NDJSON, and Arrow IPC formats
+- **Multi-format support**: JSON, NDJSON,CSV, and Arrow IPC formats
 - **Schema inference**: Automatic type detection and optimization
 
 ### Advanced Analytics
@@ -98,7 +98,7 @@ ZappyFrame delivers exceptional performance for large-scale data operations thro
 
 ```scala
 // Load JSON data
-val df = ArrowDataFrame.scanJson("data.json")
+val df = ZappyFrame.scanJson("data.json")
 
 // Perform operations
 val filtered = df.filter($"age" > 25)
@@ -112,7 +112,7 @@ df.write.arrow("output.arrow")
 
 ```scala
 // Optimized field selection
-val df = ArrowDataFrame.scanJson("./data.json")
+val df = ZappyFrame.scanJson("./data.json")
 
 // High-performance joins
 val result = df.Join(otherDF, "id", "inner")
@@ -156,4 +156,4 @@ ZappyFrame is closed source currently and in active developpement.
 yoan.sapienza@outlook.fr
 ---
 
-*Built for performance, designed for scale, optimized for speed.*
+*Built for performance*
